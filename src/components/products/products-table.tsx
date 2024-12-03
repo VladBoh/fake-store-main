@@ -21,7 +21,7 @@ import { productcolumns } from "./products-col";
 
 export function ProductsTable() {
   const { data: products = [], isLoading } = useGetProductsQuery({});
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [, setSorting] = React.useState<SortingState>([]);
 
   const table = useReactTable({
     data: products,

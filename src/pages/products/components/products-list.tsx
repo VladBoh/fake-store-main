@@ -1,7 +1,6 @@
 import { Loader2, ShoppingBasket } from 'lucide-react'
 import { toast } from 'sonner'
 
-import { useDeleteProductMutation } from '@/api/products/products'
 import type { Product } from '@/api/products/products.types'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -22,6 +21,7 @@ import {
 } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
 import { trunc } from '@/utils/trunc'
+import { useDeleteProductMutation } from '@/api/products/product'
 
 interface ProductListProps {
     products: Product[]

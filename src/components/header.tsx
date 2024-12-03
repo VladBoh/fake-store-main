@@ -10,10 +10,8 @@ import {
 } from '@/components/ui/navigation-menu'
 import { routes } from '@/config/routes'
 import { cn } from '@/lib/utils'
-import { useAppSelector } from '@/store/hooks'
 
 export const Header = () => {
-    const count = useAppSelector((state) => state.counter.value)
 
     const location = useLocation()
 
@@ -22,18 +20,6 @@ export const Header = () => {
             name: 'Home',
             href: routes.home
         },
-        {
-            name: 'Form',
-            href: routes.form
-        },
-        {
-            name: 'Table',
-            href: routes.table
-        },
-        {
-            name: `Counter ${count}`,
-            href: routes.counter
-        }
     ]
 
     return (

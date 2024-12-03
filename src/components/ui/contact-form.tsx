@@ -4,9 +4,6 @@ import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { DatePicker } from './date-picker'
-import { ThemeSelect } from './theme-select'
-import { Checkbox } from './ui/checkbox'
-import { PasswordWithReveal } from './ui/password-with-reveal'
 import { Button } from '@/components/ui/button'
 import {
     Form,
@@ -18,6 +15,9 @@ import {
     FormMessage
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { ThemeSelect } from '../theme-select'
+import { Checkbox } from './checkbox'
+import { PasswordWithReveal } from './password-with-reveal'
 
 const contactSchema = z.object({
     username: z

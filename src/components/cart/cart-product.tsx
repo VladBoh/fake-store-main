@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import type { Product } from "@/api/products/products.types";
-import { RemoveLocalProduct } from "./cart-product-delete";
 
 export const CartProducts = () => {
   const [localProducts, setLocalProducts] = useState<Product[]>([]); 
@@ -35,7 +34,6 @@ export const CartProducts = () => {
                 <p>
                   <span className="text-amber-500 font-semibold">Category:</span> {product.category}
                 </p>
-                <RemoveLocalProduct product={product}/>
               </CardFooter>
             </Card>
           ))}

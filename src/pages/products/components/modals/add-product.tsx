@@ -7,7 +7,6 @@ import { type infer as zodInfer } from 'zod'
 
 import { productAddSchema } from '../../config/shemas'
 
-import { useAddProductMutation } from '@/api/products/products'
 import { Button } from '@/components/ui/button'
 import {
     Dialog,
@@ -27,6 +26,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { UrlInput } from '@/components/ui/url-input'
+import { useCreateProductMutation } from '@/api/products/product'
 
 type AddFormValues = zodInfer<typeof productAddSchema>
 
@@ -43,8 +43,7 @@ export const AddProductModal = () => {
     })
 
     const [open, setOpen] = useState(false)
-
-    const [addProduct, { isLoading }] = useAddProductMutation()
+    const [addProduct, { isLoading }] = useCreateProductMutation()
 
     const handleProductDelete = async (data: AddFormValues) => {
         try {
@@ -60,7 +59,7 @@ export const AddProductModal = () => {
     }
 
     const onSubmit = (formData: AddFormValues) => {
-        handleProductDelete(formData)
+        handleProductDelete({ ...formData, price: Number(formData.price) });
     }
 
     return (
