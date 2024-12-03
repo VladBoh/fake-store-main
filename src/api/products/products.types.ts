@@ -8,7 +8,7 @@ export interface Product {
 }
 
 export interface ProductsQueryParams {
-    offset: number
-    limit: number
-    search: string
+    offset?: number;
+    limit?: number;
+    search?: string;
 }

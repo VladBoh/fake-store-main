@@ -1,6 +1,5 @@
 import type { SortingState } from '@tanstack/react-table'
 import { useState } from 'react'
-
 import { useGetUsersQuery } from '@/api/users/users'
 import { columns } from '@/components/table/columns'
 import { AddUserModal } from '@/components/table/modals/add-user'
@@ -35,7 +34,6 @@ export const UsersPage = () => {
             </div>
 
             <UsersTabel
-                sorting={sorting}
                 setSorting={setSorting}
                 data={users || []}
                 columns={columns}

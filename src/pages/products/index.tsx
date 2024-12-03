@@ -1,20 +1,18 @@
-import { useSearchParams } from 'react-router-dom'
-
-import { CategoryFilter } from './components/filters/category'
 import { SortingFilter } from './components/filters/sorting'
 import { AddProductModal } from './components/modals/add-product'
 import { ProductList } from './components/products-list'
-import { useGetProductsQuery } from '@/api/products/products'
-import type { Sorting } from '@/api/products/products.types'
+
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
+import { useGetProductsQuery } from '@/api/products/product'
 
 export const ProductsPage = () => {
-    const [searchParams] = useSearchParams()
 
     const { data: products, isLoading } = useGetProductsQuery({
-        sorting: (searchParams.get('sorting') as Sorting) || 'desc'
-    })
+        offset: 0,
+        limit: 10,
+        search: '',
+    });
 
     return (
         <section className='mt-10'>
@@ -33,7 +31,6 @@ export const ProductsPage = () => {
             </div>
 
             <div className='mt-4 flex items-center justify-between gap-x-4'>
-                <CategoryFilter />
                 <SortingFilter />
             </div>
 

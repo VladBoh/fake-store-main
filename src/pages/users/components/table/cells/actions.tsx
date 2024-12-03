@@ -1,6 +1,4 @@
 import { MoreHorizontal } from 'lucide-react'
-
-import { EditUserModal } from '../../modals/edit-user'
 import { RemoveUserModal } from '../../modals/remove-user'
 
 import type { User } from '@/api/users/users.types'
@@ -29,9 +27,6 @@ export const ActionCell = ({ user }: ActionCellProps) => {
                 <DropdownMenuContent className='flex flex-col'>
                     <DropdownMenuItem asChild>
                         <RemoveUserModal user={user} />
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <EditUserModal user={user} />
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
