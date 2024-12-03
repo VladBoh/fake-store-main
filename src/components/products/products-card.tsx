@@ -30,7 +30,7 @@ export const CardsPage = () => {
   return (
     <div className="grid grid-cols-3 gap-4">
       {data?.map((product) => (
-        <Card className="bg-amber-950 h-[310px] flex flex-col justify-between" key={product.id}>
+        <Card className="bg-amber-950 h-auto flex flex-col justify-between" key={product.id}>
           <CardHeader className="text-amber-600">
             <CardTitle className="text-lg font-bold">{trunc(product.title, 60)}</CardTitle>
             <CardDescription className="text-[#e39254] text-sm line-clamp-3">

@@ -10,6 +10,7 @@ import { UsersPage } from './pages/users'
 import { ProductPage } from './components/products/product'
 import { LoginPage } from './pages/login'
 import { CollorGeneratorPage } from './pages/dashboard'
+import { RequireAuthProvider } from './provider/provider-for-auth'
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
             },
             {
                 path: routes.cart,
-                element: <CartPage />
+                element:<RequireAuthProvider><CartPage /></RequireAuthProvider>
             },
             {
                 path: routes.generator,
@@ -31,11 +32,11 @@ const router = createBrowserRouter([
             },
             {
                 path: routes.products,
-                element: <ProductsPage />
+                element:<RequireAuthProvider><ProductsPage /></RequireAuthProvider>
             },
             {
                 path: routes.users,
-                element: <UsersPage />
+                element:<RequireAuthProvider><UsersPage /></RequireAuthProvider>
             },
             {
                 path: routes.product,
@@ -52,5 +53,5 @@ const router = createBrowserRouter([
         element: <ErrorPage />
     }
 ])
-2
+
 export const App = () => <RouterProvider router={router} />
