@@ -70,11 +70,10 @@ export const userAddSchema = z.object({
     address: addressSchema
 })
 
-
 export const productAddSchema = z.object({
-  title: z.string().nonempty("Title is required"),
-  price: z.string().nonempty("Price is required"),
-  description: z.string().nonempty("Description is required"),
-  category: z.string().nonempty("Category is required"),
-  image: z.string().optional(),
+  title: z.string().min(1, "Title is required"),
+  price: z.coerce.number().min(1, "Price is required and must be at least 1"),
+  description: z.string().min(1, "Description is required"),
+  category: z.string().min(1, "Category is required"),
+  image: z.string().url().optional(),
 });

@@ -32,7 +32,7 @@ export const AddProductModal = () => {
     resolver: zodResolver(productAddSchema),
     defaultValues: {
       title: "",
-      price: "",
+      price: 0,
       description: "",
       category: "",
       image: "",
