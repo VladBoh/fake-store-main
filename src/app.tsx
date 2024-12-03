@@ -9,7 +9,7 @@ import { ProductsPage } from './pages/products'
 import { UsersPage } from './pages/users'
 import { ProductPage } from './components/products/product'
 import { LoginPage } from './pages/login'
-import { DashboardPage } from './pages/dashboard'
+import { CollorGeneratorPage } from './pages/dashboard'
 
 const router = createBrowserRouter([
     {
@@ -26,8 +26,8 @@ const router = createBrowserRouter([
                 element: <CartPage />
             },
             {
-                path: routes.dashboard,
-                element: <DashboardPage />
+                path: routes.generator,
+                element: <CollorGeneratorPage />
             },
             {
                 path: routes.products,

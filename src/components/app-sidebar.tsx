@@ -2,9 +2,9 @@ import {
     Box,
     ChevronUp,
     Home,
-    LayoutDashboard,
     LogOut,
     Package,
+    Palette,
     ShoppingBasket,
     Users
 } from 'lucide-react'
@@ -47,10 +47,10 @@ const items = [
         tooltip: 'Home Page'
     },
     {
-        title: 'Dashboard',
-        url: routes.dashboard,
-        icon: LayoutDashboard,
-        tooltip: 'Dashboard Page'
+        title: 'Color Generator',
+        url: routes.generator,
+        icon: Palette,
+        tooltip: 'Color Generator Page'
     },
     {
         title: 'Cart',
