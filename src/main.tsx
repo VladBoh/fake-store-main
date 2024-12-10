@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client'
-
+import './components/assets/i18n';
 import { App } from './app'
 import './index.css'
 import { Providers } from './provider'

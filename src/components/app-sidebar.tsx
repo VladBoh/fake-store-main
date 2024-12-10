@@ -3,6 +3,7 @@ import {
     ChevronUp,
     Home,
     LogOut,
+    NotebookTabs,
     Package,
     Palette,
     ShoppingBasket,
@@ -45,6 +46,12 @@ const items = [
         url: routes.home,
         icon: Home,
         tooltip: 'Home Page'
+    },
+    {
+        title: 'About us',
+        url: routes.aboutus,
+        icon: NotebookTabs,
+        tooltip: 'About Us Page'
     },
     {
         title: 'Color Generator',

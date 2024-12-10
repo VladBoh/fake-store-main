@@ -11,6 +11,7 @@ import { ProductPage } from './components/products/product'
 import { LoginPage } from './pages/login'
 import { CollorGeneratorPage } from './pages/dashboard'
 import { RequireAuthProvider } from './provider/provider-for-auth'
+import { AboutUsPage } from './pages/aboutus'
 
 const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <HomePage />
+            },
+            {
+                path: routes.aboutus,
+                element:<AboutUsPage />
             },
             {
                 path: routes.cart,
