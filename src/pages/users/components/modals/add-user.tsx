@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2, UserRound } from 'lucide-react'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { withMask } from 'use-mask-input'
@@ -58,24 +58,23 @@ export const AddUserModal = () => {
 
     const [addUser, { isLoading }] = useAddUserMutation()
 
-    const handleUserDelete = async (data: AddFormValues) => {
+    const handleUserDelete = useCallback(async (data: AddFormValues) => {
         try {
             await addUser({
                 ...data,
                 address: {
                     ...data.address,
-                    number: +data.address.number
-                }
-            })
-                .unwrap()
-                .then(() => {
-                    toast.success(`User added successfully`)
-                    setOpen(false)
-                })
+                    number: Number(data.address.number), 
+                },
+            }).unwrap();
+    
+            toast.success('User added successfully');
+            setOpen(false);
         } catch (err: any) {
-            toast.error(err.data.message ? err.data.message : 'Something went wrong')
+            toast.error(err.data?.message || 'Something went wrong');
         }
-    }
+    }, [addUser, setOpen]);
+    
 
     const onSubmit = (formData: AddFormValues) => {
         handleUserDelete(formData)

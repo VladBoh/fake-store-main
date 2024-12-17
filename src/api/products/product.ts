@@ -11,7 +11,7 @@ const productsApi = api.injectEndpoints({
       },
     }),
     createProduct: builder.mutation<Product, Partial<Product>>({
-      query: (newProduct) => ({
+      query: (newProduct) => ({ 
         url: '/products',
         method: 'POST',
         body: newProduct,

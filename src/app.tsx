@@ -9,9 +9,11 @@ import { ProductsPage } from './pages/products'
 import { UsersPage } from './pages/users'
 import { ProductPage } from './components/products/product'
 import { LoginPage } from './pages/login'
-import { CollorGeneratorPage } from './pages/dashboard'
 import { RequireAuthProvider } from './provider/provider-for-auth'
 import { AboutUsPage } from './pages/aboutus'
+import { lazy } from 'react'
+
+const CollorGeneratorPage = lazy(() => import('./pages/dashboard'));
 
 const router = createBrowserRouter([
     {

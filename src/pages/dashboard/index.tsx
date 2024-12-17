@@ -1,6 +1,6 @@
 import ColorGenerator from "./components/v0-collor-generator"
 
-export const CollorGeneratorPage = () => {
+const CollorGeneratorPage = () => {
     return (
         <section className='flex gap-7 flex-col'>
             <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
@@ -10,3 +10,5 @@ export const CollorGeneratorPage = () => {
         </section>
     )
 }
+
+export default CollorGeneratorPage

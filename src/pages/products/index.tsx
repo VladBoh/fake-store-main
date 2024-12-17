@@ -1,10 +1,11 @@
 import { SortingFilter } from './components/filters/sorting'
-import { AddProductModal } from './components/modals/add-product'
+
 import { ProductList } from './components/products-list'
 
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useGetProductsQuery } from '@/api/products/product'
+import { AddProductModal } from '@/components/products/modals/add-product'
 
 export const ProductsPage = () => {
 
@@ -27,7 +28,7 @@ export const ProductsPage = () => {
                         <Badge>{products?.length}</Badge>
                     )}
                 </div>
-                <AddProductModal />
+                <AddProductModal/>
             </div>
 
             <div className='mt-4 flex items-center justify-between gap-x-4'>

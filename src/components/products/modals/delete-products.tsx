@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { toast } from 'sonner';
 import type { Product } from '@/api/products/products.types';
 import { useDeleteProductMutation } from '@/api/products/product';
@@ -15,19 +15,17 @@ export const RemoveProductModal = ({ product }: RemoveProductModalProps) => {
     const [open, setOpen] = useState(false);
     const [deleteProduct, { isLoading }] = useDeleteProductMutation();
 
-    const handleProductDelete = async () => {
+    const handleProductDelete = useCallback(async () => {
         try {
-            await deleteProduct(product.id)
-                .unwrap()
-                .then(() => {
-                    toast.success(`Product "${product.title}" deleted successfully`);
-                    setOpen(false); 
-                });
+            await deleteProduct(product.id).unwrap();
+            toast.success(`Product "${product.title}" deleted successfully`);
+            setOpen(false); 
         } catch (err: any) {
             console.error(err);
             toast.error(err.data?.message || 'Something went wrong');
         }
-    };
+    }, [product.id, product.title]);
+    
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>

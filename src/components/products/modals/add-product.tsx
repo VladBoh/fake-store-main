@@ -23,7 +23,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { productAddSchema } from "@/components/table/config/shemas";
 import { useCreateProductMutation } from "@/api/products/product";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 type AddFormValues = zodInfer<typeof productAddSchema>;
 
@@ -43,18 +43,15 @@ export const AddProductModal = () => {
 
   const [addProduct, { isLoading }] = useCreateProductMutation();
 
-  const handleProductAdd = async (data: AddFormValues) => {
+  const handleProductAdd = useCallback(async (data: AddFormValues) => {
     try {
-      await addProduct(data)
-        .unwrap()
-        .then(() => {
-          toast.success(`Product added successfully`);
-          setOpen(false);
-        });
+        await addProduct(data).unwrap();
+        toast.success('Product added successfully');
+        setOpen(false);
     } catch (err: any) {
-      toast.error(err.data?.message || "Something went wrong");
+        toast.error(err.data?.message || 'Something went wrong');
     }
-  };
+}, []);
 
   const onSubmit = (formData: AddFormValues) => {
     handleProductAdd(formData);
